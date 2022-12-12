@@ -1,0 +1,46 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.potar</groupId>
+  <artifactId>AnalizadorVideoLib</artifactId>
+  <version>1.4.1</version>
+  
+  <properties>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <myVideoLib>/home/pato/Documentos/Processing/sketchbook/AnalizadorVideo/Analizador de Video 1.4.0 linux-arm64/lib/video.jar</myVideoLib>  	
+  	<imageProcessing>/home/pato/Documentos/Processing/sketchbook/AnalizadorVideo/Analizador de Video 1.4.0 linux-arm64/lib/ImageProcessing.jar</imageProcessing>
+  </properties>
+  
+  <dependencies>
+	<dependency>
+	    <groupId>org.processing</groupId>
+	    <artifactId>core</artifactId>
+	    <version>3.3.7</version>
+	</dependency>
+	<dependency>
+		<groupId>org.processing</groupId>
+		<artifactId>video-local</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${myVideoLib}</systemPath>
+	</dependency>
+	<dependency>
+	    <groupId>org.freedesktop.gstreamer</groupId>
+	    <artifactId>gst1-java-core</artifactId>
+	    <version>1.2.0</version>
+	</dependency>
+	<dependency>
+		<groupId>org.jogamp.jogl</groupId>
+		<artifactId>newt</artifactId>
+		<version>2.3.2</version>
+	</dependency>
+	<dependency>
+		<groupId>milchreis</groupId>
+		<artifactId>imageprocessing</artifactId>
+		<version>1.0</version>
+		<scope>system</scope>
+		<systemPath>${imageProcessing}</systemPath>
+	</dependency>
+
+  </dependencies>
+</project>

@@ -1,0 +1,69 @@
+Versión 1.4.1
+=============
+Nuevos
+------
+Se refactorizó todo para que sea un proyecto Java. Ahora es una libraría que usa una aplicación de Processing.
+Usando la tecla Backspace (tecla Retroceso o "borrar para atrás") permite volver la pantalla anterior. De esta forma está se puede elegir otro video, elegir otro fondo, otra duración, etc.
+Ahora si se ignora una parte del video, ese tiempo no se suma al tiempo de la corrida
+Al apretar escape, preguntar si está seguro de querer salir
+Ahora el tipo de laberínto se elije en la pantalla de edición
+
+Versión 1.4.0
+=============
+Nuevos
+------
+Se agregó la posibilidad de marcar distintos momentos del video para ignorar. Por ejemplo cuando se cae el ratón y hay que intervenir, se "enmascara" ese tiempo para que no se lo tome en cuenta en el análisis.
+Se guardan junto a los demás datos la información de la mascara temporal
+Se puede en la edición de la grilla, engrosar las líneas para indicar que se enmascaren (con la tecla 'G').
+
+Cambios
+-------
+Se agregó el nombre del video a la pantalla mientras se hace el análisis del mismo.
+Se arma automáticamente la máscara y listo. Ya no deja estar o no conforme con la misma. Después se edita manualmente.
+
+
+Versión 1.3.1
+=============
+Nuevos
+------
+En esta versión se agregó que las estadísticas (tiempo en zonas, cantidad de entradas, etc) se acumulan por tiempo. Esto permitirá volver el tiempo atrás y retomar desde un momento dado del video.
+También se agregó la posibilidad de ver em grande la imagen de fondo, la máscara y la imagen de detección (acercando e mouse a las respectivas esquinas)
+
+
+Cambios
+-------
+Se arregló un pequeño bug cuando se ponía que uno no estaba de acuerdo con la mascara generada automáticamente
+
+
+
+Versión 1.3.0
+=============
+
+Nuevos
+------
+-Se implementó el análisis de Plus-Maze y su correspondiente edición del terreno para hacer coincidir la imagen del video con las distintas zonas del Plus-Maze
+-Ídem para Y-Maze
+ATENCIÓN! Todavía no hacer análisis definitivos porque podría haber cambios en la implementación que afectarían los resultados finales.
+
+Cambios
+-------
+-Se modificó la forma de editar los "terrenos". Ya no se busca automáticamente líneas. Muestra la forma del terreno directamente y se debe alinear la forma con la imagen.
+-Al mostrar el recorrido, se muestra en otro color las ubicaciones de los últimos 5 segundos
+-Se modificó la ayuda en Edición.
+
+
+Propiedades no documentadas previamente
+---------------------------------------
+-Para Open field: El tiempo en periferia incluye el tiempo en esquinas. Obviamente el tiempo en esquina es solamente cuando está en alguna de las cuatro esquinas.
+-Al final de cada análisis guarda en la misma carpeta donde se encuentra el video un archivo .cvs con los resultados del análisis, todas las posiciones dónde estuvo el ratón, y los datos del terreno. Tamién se guarda una imagen con todo el recorrido, y otra imagen con la máscara utilizada durante el análisis. Por último, en esta misma ubicación se guardan las capturas que se hayan realizado. Todos estos archivos se nombran comenzando con el nombre del video.
+-Guarda dos logs en la misma carpeta donde está el ejecutable. Uno con el nombre "salidaStd.txt", y el otro "salidaErr.txt"
+
+
+Ideas a futuro
+--------------
+-Hacer rediseño (emprolijar clases, etc.)
+-Ver que siempre la posición caiga dentro de una zona (por ejemplo en plus-maze, la zona central al tener esquinas, el promedio puede quedar fuera de la misma)
+-Hacer algo para ignorar puntos sueltos
+-Poder recuperar los datos de la ubicación del terreno y/o la máscara para una nueva corrida (esto suponiendo que los videos comparten exactamente las mismas posiciones)
+-Hacer algo para detectar caca, e ignorarla en el momento de calcular posición del ratón.
+-Cambiar el flujo de trabajo (primero abrir archivo de video, elegir imagen de fondo y cuando comienza, luego elegir tipo de maze, editar, y por último análisis)
